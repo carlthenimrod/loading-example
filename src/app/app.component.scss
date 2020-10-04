@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  padding: 5rem;
+}
+
+nav {
+  a {
+    background-color: #ccc;
+    border-radius: 0.5rem;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 5rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #aaa;
+    }
+  }
+}
+
+div {
+  margin: 0;
+  padding: 5rem;
+}
