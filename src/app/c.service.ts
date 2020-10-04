@@ -7,7 +7,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class CService {
   fakeHttp(): Observable<string> {
-    return timer(5000)
+    return timer(10000)
       .pipe(
         switchMap(_ => of('Fake Http Call!'))
       );

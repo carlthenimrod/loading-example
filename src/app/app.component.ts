@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { LoadingService } from './loading.service';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +9,9 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 export class AppComponent implements OnInit {
   title = 'loading';
 
-  constructor(private router: Router) { }
+  constructor(private loadingService: LoadingService) { }
 
   ngOnInit(): void {
-    this.router.events
-      .subscribe(e => {
-        switch (true) {
-          case e instanceof NavigationStart:
-            console.log('Loading start...');
-            break;
-          case e instanceof NavigationEnd:
-          case e instanceof NavigationError:
-          case e instanceof NavigationCancel:
-            console.log('Loading stop...');
-            break;
-        }
-      });
+    this.loadingService.loading$.subscribe(e => console.log(e));
   }
 }

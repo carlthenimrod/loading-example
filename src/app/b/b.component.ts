@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CService } from '../c.service';
 
 @Component({
   selector: 'app-b',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
     <h2>This is... B Component</h2>
   `
 })
-export class BComponent { }
+export class BComponent implements OnInit {
+  constructor(private cService: CService) { }
+
+  ngOnInit(): void {
+    this.cService.fakeHttp().subscribe(e => console.log(e));
+  }
+}
