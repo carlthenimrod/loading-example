@@ -6,4 +6,6 @@
 
 <div>
   <router-outlet></router-outlet>
+
+  <app-loading *ngIf="loading$ | async"></app-loading>
 </div>

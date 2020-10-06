@@ -6,12 +6,10 @@ import { LoadingService } from './loading.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'loading';
 
-  constructor(private loadingService: LoadingService) { }
+  loading$ = this.loadingService.loading$;
 
-  ngOnInit(): void {
-    this.loadingService.loading$.subscribe(e => console.log(e));
-  }
+  constructor(private loadingService: LoadingService) { }
 }

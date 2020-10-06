@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CService } from '../c.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-b',
@@ -8,9 +8,12 @@ import { CService } from '../c.service';
   `
 })
 export class BComponent implements OnInit {
-  constructor(private cService: CService) { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.cService.fakeHttp().subscribe(e => console.log(e));
+    this.route.data
+      .subscribe(d => console.log(d));
   }
 }
